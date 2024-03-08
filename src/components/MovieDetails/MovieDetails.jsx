@@ -13,7 +13,8 @@ const MovieDetails = ({ movie }) => {
     <div className={css.movie_details_container}>
       {poster_path && (
         <img
-          src={`https://image.tmdb.org/t/p/w185${poster_path}`}
+          width="250px"
+          src={`https://image.tmdb.org/t/p/w342${poster_path}`}
           alt="original_title"
         />
       )}

@@ -1,12 +1,15 @@
 import { getMovieDeteilsApi } from 'api/movies';
+import Information from 'components/Information/Information';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movie, setMovie] = useState({});
+  const [movie, setMovie] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const getMovieDeteils = async () => {
@@ -23,20 +26,17 @@ const MovieDetailsPage = () => {
     getMovieDeteils();
   }, [movieId]);
 
+  const handleBack = () => {
+    navigate(location.state ?? '/movies');
+  };
+
   return (
     <>
+      <button type="button" onClick={handleBack}>
+        Go back
+      </button>
       {isLoading ? <p>Loading</p> : <MovieDetails movie={movie} />}
-      <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
-            <Link>Cast</Link>
-          </li>
-          <li>
-            <Link>Review</Link>
-          </li>
-        </ul>
-      </div>
+      <Information state={location.state} />
     </>
   );
 };
