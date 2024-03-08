@@ -5,18 +5,13 @@ import { useParams } from 'react-router-dom';
 const Cast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const getMovieDeteils = async () => {
       try {
-        setIsLoading(true);
         const data = await getMovieCastApi(movieId);
         setCast(data.cast);
-      } catch (error) {
-      } finally {
-        setIsLoading(false);
-      }
+      } catch (error) {}
     };
 
     getMovieDeteils();

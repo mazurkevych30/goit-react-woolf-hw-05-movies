@@ -20,7 +20,7 @@ export const App = () => {
         <Route
           path="/movies"
           element={
-            <Suspense>
+            <Suspense fallback={<p>Loading...</p>}>
               <MoviesPage />
             </Suspense>
           }
@@ -28,7 +28,7 @@ export const App = () => {
         <Route
           path="/movies/:movieId"
           element={
-            <Suspense>
+            <Suspense fallback={<p>Loading...</p>}>
               <MovieDetailsPage />
             </Suspense>
           }
@@ -36,7 +36,7 @@ export const App = () => {
           <Route
             path="cast"
             element={
-              <Suspense>
+              <Suspense fallback={<p>Loading...</p>}>
                 <Cast />
               </Suspense>
             }
@@ -44,7 +44,7 @@ export const App = () => {
           <Route
             path="reviews"
             element={
-              <Suspense>
+              <Suspense fallback={<p>Loading...</p>}>
                 <Reviews />
               </Suspense>
             }
