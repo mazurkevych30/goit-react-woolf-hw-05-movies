@@ -1,10 +1,11 @@
+import css from './Information.module.css';
 const { Link, Outlet } = require('react-router-dom');
 
 const Information = ({ state }) => {
   return (
-    <div>
+    <div className={css.info_cont}>
       <h3>Additional information</h3>
-      <ul>
+      <ul className={css.info_list}>
         <li>
           <Link to="cast" state={state}>
             Cast
@@ -16,7 +17,6 @@ const Information = ({ state }) => {
           </Link>
         </li>
       </ul>
-      <Outlet />
     </div>
   );
 };

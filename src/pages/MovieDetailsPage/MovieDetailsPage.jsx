@@ -2,7 +2,7 @@ import { getMovieDeteilsApi } from 'api/movies';
 import Information from 'components/Information/Information';
 import MovieDetails from 'components/MovieDetails/MovieDetails';
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -37,6 +37,7 @@ const MovieDetailsPage = () => {
       </button>
       {isLoading ? <p>Loading</p> : <MovieDetails movie={movie} />}
       <Information state={location.state} />
+      <Outlet />
     </>
   );
 };

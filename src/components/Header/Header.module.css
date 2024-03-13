@@ -1,1 +1,13 @@
+.header_cont {
+  border-bottom: 1px gray solid;
+}
 
+.nav_list {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
