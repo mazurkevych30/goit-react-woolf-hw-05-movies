@@ -1,5 +1,5 @@
 import css from './Information.module.css';
-const { Link, Outlet } = require('react-router-dom');
+const { Link } = require('react-router-dom');
 
 const Information = ({ state }) => {
   return (
